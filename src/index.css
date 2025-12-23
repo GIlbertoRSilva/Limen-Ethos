@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* LIMEN Design System
+   A calm, liminal space for self-reflection
+   Colors in HSL format
+*/
+
+@layer base {
+  :root {
+    /* Limen Core Palette */
+    --background: 213 50% 11%; /* #0E1B2A */
+    --foreground: 214 33% 97%; /* #F5F7FA */
+
+    --card: 213 38% 20%; /* #1F2F44 */
+    --card-foreground: 214 33% 97%;
+
+    --popover: 213 38% 20%;
+    --popover-foreground: 214 33% 97%;
+
+    --primary: 153 46% 65%; /* #7BD4B5 - Positive accent */
+    --primary-foreground: 213 50% 11%;
+
+    --secondary: 213 38% 25%;
+    --secondary-foreground: 214 33% 97%;
+
+    --muted: 213 38% 18%;
+    --muted-foreground: 216 16% 87%; /* #D9DEE5 */
+
+    --accent: 255 32% 68%; /* #9B8FCB - Emotional accent */
+    --accent-foreground: 214 33% 97%;
+
+    --destructive: 0 0% 50%;
+    --destructive-foreground: 214 33% 97%;
+
+    --border: 213 30% 28%;
+    --input: 213 30% 28%;
+    --ring: 153 46% 65%;
+
+    --radius: 1rem;
+
+    /* Limen Custom Tokens */
+    --limen-glow: 153 46% 65%;
+    --limen-emotional: 255 32% 68%;
+    --limen-surface: 213 38% 16%;
+    --limen-surface-elevated: 213 38% 22%;
+
+    /* Sidebar (keeping for component compatibility) */
+    --sidebar-background: 213 50% 11%;
+    --sidebar-foreground: 214 33% 97%;
+    --sidebar-primary: 153 46% 65%;
+    --sidebar-primary-foreground: 213 50% 11%;
+    --sidebar-accent: 213 38% 20%;
+    --sidebar-accent-foreground: 214 33% 97%;
+    --sidebar-border: 213 30% 28%;
+    --sidebar-ring: 153 46% 65%;
+  }
+
+  /* Dark mode is the default for Limen */
+  .dark {
+    --background: 213 50% 11%;
+    --foreground: 214 33% 97%;
+    --card: 213 38% 20%;
+    --card-foreground: 214 33% 97%;
+    --popover: 213 38% 20%;
+    --popover-foreground: 214 33% 97%;
+    --primary: 153 46% 65%;
+    --primary-foreground: 213 50% 11%;
+    --secondary: 213 38% 25%;
+    --secondary-foreground: 214 33% 97%;
+    --muted: 213 38% 18%;
+    --muted-foreground: 216 16% 87%;
+    --accent: 255 32% 68%;
+    --accent-foreground: 214 33% 97%;
+    --destructive: 0 0% 50%;
+    --destructive-foreground: 214 33% 97%;
+    --border: 213 30% 28%;
+    --input: 213 30% 28%;
+    --ring: 153 46% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+}
+
+@layer components {
+  /* Limen Glass Effect */
+  .limen-glass {
+    @apply bg-card/80 backdrop-blur-xl border border-border/50 rounded-2xl;
+  }
+
+  /* Limen Glow Effect */
+  .limen-glow {
+    box-shadow: 0 0 60px -12px hsl(var(--primary) / 0.3);
+  }
+
+  /* Calm transition for all interactive elements */
+  .limen-transition {
+    @apply transition-all duration-500 ease-out;
+  }
+
+  /* Text reveal animation */
+  .limen-fade-in {
+    animation: limenFadeIn 0.8s ease-out forwards;
+  }
+
+  /* Breathing animation for subtle elements */
+  .limen-breathe {
+    animation: limenBreathe 4s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  /* Subtle text glow */
+  .text-glow {
+    text-shadow: 0 0 30px hsl(var(--primary) / 0.5);
+  }
+
+  /* Emotional text glow */
+  .text-glow-emotional {
+    text-shadow: 0 0 30px hsl(var(--accent) / 0.5);
+  }
+}
+
+@keyframes limenFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes limenBreathe {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}

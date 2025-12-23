@@ -1,0 +1,4 @@
+project_id = "lcwdeiutcgcatryjuffp"
+
+[functions.ai-reflection]
+verify_jwt = true
